@@ -22,47 +22,76 @@
 
   <body ng-app="IS219Gallery">
 	  
-      <div class="header" ng-controller="HomeController">
+      <div class="header" ng-controller="homeController">
 	    
       <div class="container">
-        <h1 id="app_title">%title%</h1>
+        <h1 id="app_title">{{ title}}</h1>
       </div>
       
     </div>
 
-    <div class="main" ng-controller="HomeController">
+    <div class="main" ng-controller="homeController">
       
       <div class="container">
+          
+        <div ng-repeat="i in [0, 1, 2, 3]">
+                <div class="col-md-6">     
 
-        <div class="col-md-6"> 
-            <div class="thumbnail">
+                        <div class="thumbnail">
 
-					<img class="poster" />
-					<div class="imageInfo">%posterindex%</div>
-					
-					<p class="title">%title% (%country%)</p> 
-					<p class="score"><i class="fa fa-star" aria-hidden="true"></i> %iscore% </p>
-					<p class="runtime">Runtime: %runtime%</p> 
-					<p class="released">Released: %released% | Rated: %rating%</p>
-					<p class="websites">Websites: <a>%imdb%</a> | <a>%website%</a></p>
-					
-		            <div class="social">
-		              <p class="likes"><i class="fa fa-thumbs-up" aria-hidden="true"></i> %like%</p>
-		              <p class="dislikes"><i class="fa fa-thumbs-down" aria-hidden="true"></i> %dislike%</p>
-		            </div>
-            </div> 
+                            <img class="poster" ng-click="posterClick(i)" ng-src=" {{movies[i].posters[movies[i].posterindex]}}" />
+                            <div class="imageInfo">%Poster {{movies[i].posterindex + 1}} of {{movies[i].posters.length}}</div>
+
+                            <p class="title">{{ movies[i].title}} ({{ movies[i].country}})</p> 
+                            <p class="score"><i class="fa fa-star" aria-hidden="true"></i> {{ movies[i].iscore}} </p>
+                            <p class="runtime">Runtime: {{ timeText(movies[i].runtime) }}</p> 
+                            <p class="released">Released: {{ movies[i].released | date }} | Rated: {{ movies[i].rating}}</p>
+                            <p class="websites">Websites: <a id="imdb" ng-href="{{ movies[i].imdb}}"> IMDB </a> | <a id="website" ng-href="{{ movies[i].website}}"> Website </a></p>
+
+                                <div class="social">
+                                    <p class="likes" ng-click = "like(i)"><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{ movies[i].likes}}</p>
+                                    <p class="dislikes" ng-click = "dislike(i)"><i class="fa fa-thumbs-down" aria-hidden="true"></i> {{ movies[i].dislikes}}</p>
+                                </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div ng-repeat="i in [4, 5, 6, 7]">
+            <div class="col-md-6"> 
+                <div class="thumbnail">
+                    <img ng-click="posterClick(i)"  class="poster" ng-src=" {{movies[i].posters[movies[i].posterindex]}}"/>
+                    <div class="imageInfo">Poster {{movies[i].posterindex + 1}} of {{movies[i].posters.length}} </div>
+
+                    <p class="title"> {{ movies[i].title}} ({{ movies[i].country}}) </p> 
+                    <p class="score"><i class="fa fa-star" aria-hidden="true"></i> {{ movies[i].iscore}} </p>
+                    <p class="runtime">Runtime: {{ movies[i].runtime}} </p> 
+                    <p class="released">Released: {{ movies[i].released | date }} | Rated: {{ movies[i].rating}} </p>
+                    <p class="websites">Websites: <a id="imdb" ng-href="{{ movies[i].imdb}}"> IMDB </a> | <a id="website" ng-href="{{ movies[i].website}}"> Website </a></p>
+
+                    <div class="social">
+                        <p class="likes" ng-click = "like(i)" ><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{ movies[i].likes}} </p>
+                        <p class="dislikes"ng-click = "dislike(i)" ><i class="fa fa-thumbs-down" aria-hidden="true"></i> {{ movies[i].dislikes}} </p>
+                    </div>    
+                    
+                </div>
+
+            </div>
+            
         </div>
 
-      </div>
     </div>
 
-    <div class="footer" ng-controller="HomeController">
-      <div class="container">
-		<a id="github" class="btn btn-lg btn-warning">
-			<i class="fa fa-lg fa-github pull-left" aria-hidden="true"></i> %owner% %github%
+      
+      <div class="footer" ng-controller="homeController">
+        <div class="container">
+		<a id="github" class="btn btn-lg btn-warning" ng-href="{{ github}}">
+			<i class="fa fa-lg fa-github pull-left" aria-hidden="true"></i> {{ owner}} | Github
   		</a>
-      </div>
-    </div>
+        </div>
+        </div>
 
   
   	<!-- Modules -->

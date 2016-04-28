@@ -10,6 +10,7 @@ body {
 
 /* This stylizes the header area */
 .header {
+    text-align: center;
     padding: 15px;
 }
 .header h1 {
@@ -120,7 +121,20 @@ body {
 
 /* ADD YOUR LIKE AND DISLIKE HOVER/MOUSEOVER CSS CODE HERE */
 
+.likes:hover {
+    background: #9EDD87;
+    color: #008700;
+    transition-duration: 500ms;
+}
 
+.dislikes:hover {
+    background: #FDD6D6;
+    color: #F65A5B;
+    transition-duration: 500ms;
+}
 
+#app_title {
+    color: #FFFFFF;
+}
 
 
