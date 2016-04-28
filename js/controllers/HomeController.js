@@ -1,4 +1,4 @@
-app.controller('HomeController', ['$scope', function($scope) {
+app.controller('homeController', ['$scope', function($scope) {
 	
 	
 	/* THESE ARE YOUR LIST OF MOVIES AND ACCOMPANYING METADATA
@@ -88,10 +88,61 @@ app.controller('HomeController', ['$scope', function($scope) {
       likes:	812,
       dislikes:	101,
       posterindex: 0
-	}
+	},
+        
+          {
+                title: 'Grind',
+                iscore: 6.0,
+                rating: 'PG-13',
+                runtime: 145,
+                released: new Date('2003', '08', '15'),
+                country: 'USA',
+                posters: ['img/grind.jpg', 'img/grind.jpg', 'img/grind.jpg'],
+                imdb: 'http://www.imdb.com/title/tt0338077/?ref_=tt_mv_close',
+                website: 'https://en.wikipedia.org/wiki/Grind_(2003_film)',
+                likes: 1000,
+                dislikes: 50,
+                posterindex: 0
+            },
+            {
+                title: 'American Sniper',
+                iscore: 7.3,
+                rating: 'R',
+                runtime: 213,
+                released: new Date('2015', '01', '16'),
+                country: 'USA',
+                posters: ['img/sniper.jpg', 'img/sniper.jpg'],
+                imdb: 'http://www.imdb.com/title/tt2179136/?ref_=tt_mv_close',
+                website: 'http://www.americansnipermovie.com/',
+                likes: 3000,
+                dislikes: 99,
+                posterindex: 0
+            },
+            {
+                title: 'Fast and the Furious',
+                iscore: 6.7,
+                rating: 'PG-13',
+                runtime: 146,
+                released: new Date('2001', '06', '21'),
+                country: 'USA',
+                posters: ['img/fast.jpg', 'img/fast.jpg'],
+                imdb: 'http://www.imdb.com/title/tt0112573/',
+                website: 'http://www.imdb.com/title/tt0232500/?ref_=tt_mv_close',
+                likes: 500,
+                dislikes: 150,
+                posterindex: 0
+            }        
+        
+    
 	
 	
   ];
+  
+  
+  
+  
+  
+  
 	
 	
 
